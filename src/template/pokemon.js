@@ -1,10 +1,9 @@
 import React from "react"
-export default function AllPokemon({ pageContext: { allPokemon } }) {
-  console.log(allPokemon)
+export default function pokemon({ pageContext: { pokemon } }) {
+  console.log(pokemon)
   return (
     <div>
       <ul>
-        {allPokemon.map(pokemon => (
           <li key={pokemon.id}>
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             <h2>Name: {pokemon.name}</h2>
@@ -18,7 +17,6 @@ export default function AllPokemon({ pageContext: { allPokemon } }) {
             <h4>{pokemon.stats[5].stat.name} - {pokemon.stats[5].base_stat}</h4>
             <p></p>
           </li>
-        ))}
       </ul>
     </div>
   )
