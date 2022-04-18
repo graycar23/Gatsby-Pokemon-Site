@@ -1,5 +1,4 @@
 const axios = require("axios")
-const { default: pokemon } = require("./src/template/pokemon")
 const get = endpoint => axios.get(`https://pokeapi.co/api/v2${endpoint}`)
 const getPokemonData = names =>
   Promise.all(
@@ -11,31 +10,19 @@ const getPokemonData = names =>
 
 exports.createPages = async ({ actions: { createPage } }) => {
   const allPokemon = await getPokemonData(["infernape", "ditto", "charmander", "pikachu", "cubchoo", "beedrill", "phanpy", "squirtle", "sawk", "throh"])
-  
+
   createPage({
     path: `/pokemon`,
     component: require.resolve("/home/graycar23/my-first-gastby-site-main/src/template/all-pokemon.js"),
     context: { allPokemon },
   })
-  
+
   for (let i = 0; i < allPokemon.length; i++){
-    pokemon = [allPokemon[i]]
-
-    if (i-1 >= 0){
-      pokemon.push(allPokemon[i-1])
-    }
-
-    if (i+1 < allPokemon.length){
-      pokemon.push(allPokemon[i+1])
-    }
-
+    pokemon = allPokemon[i]
     createPage({
-      path: `/pokemon/${pokemon[0].name}`,
+      path: `/pokemon/${pokemon.name}`,
       component: require.resolve("/home/graycar23/my-first-gastby-site-main/src/template/pokemon.js"),
       context: { pokemon },
     })
-    
-    pokemon.length = 0
-
   }
-}
+} 
