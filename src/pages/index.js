@@ -10,6 +10,7 @@ import Pie from '../components/pie'
 import Layout from '../components/layout'
 
 import { StaticImage } from 'gatsby-plugin-image'
+import { pie } from 'd3'
 
 // Step 2: Define your component
 const IndexPage = () => {
@@ -18,6 +19,7 @@ const IndexPage = () => {
   const pieDataUpdateActionFunction = pieDataUpdateAction
 
   console.log(pieDataValues)
+  console.log(pieDataValues.data)
   return (
     <Layout pageTitle="Home Page">
       <p>I'm making this by following the Gatsby Tutorial.</p>
