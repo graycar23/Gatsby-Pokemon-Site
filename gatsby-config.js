@@ -1,4 +1,5 @@
 module.exports = {
+    pathPrefix: "/Gatsby-Pokemon-Site",
     siteMetadata: {
       title: `Grayson Salyers Gatsby Site`,
         siteUrl: `https://www.yourdomain.tld`,
